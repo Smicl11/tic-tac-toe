@@ -5,4 +5,12 @@
 .box {
   border: 1px solid black;
   height: 150px;
+  text-align: center;
+  color: red;
+  font-size: 700%;
+}
+
+.btn {
+  font-size: 200%;
+  margin: 50px 0px 50px 0px;
 }
