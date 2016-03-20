@@ -9,7 +9,7 @@ $(document).ready(function()  {
 var playerOne = "X";
     playerTwo = "O";
     clickCount = 0;
-    winRowOne = $("#bx0", "#bx1", "#bx3").text();
+    winRowOne = [$("#bx0").text() + $("#bx1").text() + $("#bx2").text()];
     winRowTwo = $("#bx0", "#bx1", "#bx3").text();
     winRowThree = $("#bx0", "#bx1", "#bx3").text();
     winColOne = $("#bx0", "#bx1", "#bx3").text();
@@ -21,7 +21,7 @@ var playerOne = "X";
 console.log(winRowOne);
 
  $(".box").click(function(event){
-   if( !$(this).text() ){
+   if(! $(this).text() ){
      if (clickCount % 2 === 0 ){
        $(this).text(playerOne);
          clickCount ++;
@@ -35,10 +35,10 @@ console.log(winRowOne);
 
   $(".btn").on("click", function resetGame(event) {
     alert("Game reset!");
-    $(".box").text("");
+    window.location.reload();
   });
 
-if (winRowOne === "X" || "O",
+if (winRowOne === "XXX" || "OOO",
     winRowTwo === "X" || "O",
     winRowThree === "X" || "O",
     winColOne === "X" || "O",
