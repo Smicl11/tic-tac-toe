@@ -34,6 +34,8 @@ function xWins() {
 }
 */
 
+//function needs to be inside a for loop that runs 8 times to determine winner.
+
 function winner() {
  if (($(boxCells.eq(0)).text() === 'X' &&
       $(boxCells.eq(1)).text() === 'X' &&
