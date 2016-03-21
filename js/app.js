@@ -101,7 +101,7 @@ $(document).ready(function()  {
      return gameWinner;
   }
 
-/* else (
+/*  else {
     if (($(boxCells.eq(0)).text() === "" ||
           $(boxCells.eq(1)).text() === "" ||
           $(boxCells.eq(2)).text() === "" ||
@@ -116,8 +116,9 @@ $(document).ready(function()  {
       }
       alert(gameWinner);
       return gameWinner;
-    });
-*/
+    }};
+*/  
+
 
   $(".btn").on("click", function resetGame(event) {
     alert("Game reset!");
