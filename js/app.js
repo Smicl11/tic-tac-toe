@@ -6,10 +6,10 @@ var winningCombinations;
 $(document).ready(function()  {
 // all code to manipulate the DOM
 
-var playerOne = "X";
-    playerTwo = "O";
-    boxCells = $(".box");
-    clickCount = 0;
+  var playerOne = "X";
+      playerTwo = "O";
+      boxCells = $(".box");
+      clickCount = 0;
 
 
 //Cycle between X's and O's and prevent overwriting what's already in the box.
@@ -22,61 +22,107 @@ var playerOne = "X";
      }else if(clickCount % 2 !== 0){
          $(this).text(playerTwo);
          clickCount ++;
-
      }
+     winner();
    }
  });
 
-//Not sure if I need this right now.
-/*
-function xWins() {
-  alert("X Wins!");
-}
-*/
+  function winner() {
+    //var gameWinner;
+    if (($(boxCells.eq(0)).text() === 'X' &&
+          $(boxCells.eq(1)).text() === 'X' &&
+          $(boxCells.eq(2)).text() === 'X') ||
 
-//function needs to be inside a for loop that runs 8 times to determine winner.
+        ($(boxCells.eq(3)).text() === 'X' &&
+          $(boxCells.eq(4)).text() === 'X' &&
+          $(boxCells.eq(5)).text() === 'X') ||
 
-function winner() {
- if (($(boxCells.eq(0)).text() === 'X' &&
-      $(boxCells.eq(1)).text() === 'X' &&
-      $(boxCells.eq(2)).text() === 'X') ||
+        ($(boxCells.eq(6)).text() === 'X' &&
+          $(boxCells.eq(7)).text() === 'X' &&
+          $(boxCells.eq(8)).text() === 'X') ||
 
-    ($(boxCells.eq(3)).text() === 'X' &&
-      $(boxCells.eq(4)).text() === 'X' &&
-      $(boxCells.eq(5)).text() === 'X') ||
+        ($(boxCells.eq(0)).text() === 'X' &&
+          $(boxCells.eq(3)).text() === 'X' &&
+          $(boxCells.eq(6)).text() === 'X') ||
 
-    ($(boxCells.eq(6)).text() === 'X' &&
-      $(boxCells.eq(7)).text() === 'X' &&
-      $(boxCells.eq(8)).text() === 'X') ||
+        ($(boxCells.eq(1)).text() === 'X' &&
+          $(boxCells.eq(4)).text() === 'X' &&
+          $(boxCells.eq(7)).text() === 'X') ||
 
-    ($(boxCells.eq(0)).text() === 'X' &&
-      $(boxCells.eq(3)).text() === 'X' &&
-      $(boxCells.eq(6)).text() === 'X') ||
+        ($(boxCells.eq(2)).text() === 'X' &&
+          $(boxCells.eq(5)).text() === 'X' &&
+          $(boxCells.eq(8)).text() === 'X') ||
 
-    ($(boxCells.eq(1)).text() === 'X' &&
-      $(boxCells.eq(4)).text() === 'X' &&
-      $(boxCells.eq(7)).text() === 'X') ||
+        ($(boxCells.eq(0)).text() === 'X' &&
+          $(boxCells.eq(4)).text() === 'X' &&
+          $(boxCells.eq(8)).text() === 'X') ||
 
-    ($(boxCells.eq(2)).text() === 'X' &&
-      $(boxCells.eq(5)).text() === 'X' &&
-      $(boxCells.eq(8)).text() === 'X') ||
+        ($(boxCells.eq(2)).text() === 'X' &&
+          $(boxCells.eq(4)).text() === 'X' &&
+          $(boxCells.eq(6)).text() === 'X') ) {
 
-    ($(boxCells.eq(0)).text() === 'X' &&
-      $(boxCells.eq(4)).text() === 'X' &&
-      $(boxCells.eq(8)).text() === 'X')) {
-        //return alert("X Wins!");
-        //return some value that is returned when winner() is true
+            gameWinner = playerOne;
       }
-}
+  else if (($(boxCells.eq(0)).text() === 'O' &&
+             $(boxCells.eq(1)).text() === 'O' &&
+             $(boxCells.eq(2)).text() === 'O') ||
 
-//for loop to call the winner function?
-winner();
+          ($(boxCells.eq(3)).text() === 'O' &&
+            $(boxCells.eq(4)).text() === 'O' &&
+            $(boxCells.eq(5)).text() === 'O') ||
+
+          ($(boxCells.eq(6)).text() === 'O' &&
+            $(boxCells.eq(7)).text() === 'O' &&
+            $(boxCells.eq(8)).text() === 'O') ||
+
+          ($(boxCells.eq(0)).text() === 'O' &&
+            $(boxCells.eq(3)).text() === 'O' &&
+            $(boxCells.eq(6)).text() === 'O') ||
+
+          ($(boxCells.eq(1)).text() === 'O' &&
+            $(boxCells.eq(4)).text() === 'O' &&
+            $(boxCells.eq(7)).text() === 'O') ||
+
+          ($(boxCells.eq(2)).text() === 'O' &&
+            $(boxCells.eq(5)).text() === 'O' &&
+            $(boxCells.eq(8)).text() === 'O') ||
+
+          ($(boxCells.eq(0)).text() === 'O' &&
+            $(boxCells.eq(4)).text() === 'O' &&
+            $(boxCells.eq(8)).text() === 'O') ||
+
+          ($(boxCells.eq(2)).text() === 'O' &&
+            $(boxCells.eq(4)).text() === 'O' &&
+            $(boxCells.eq(6)).text() === 'O') ) {
+
+              gameWinner = playerTwo;
+     }
+     alert(gameWinner + ' has won!');
+     return gameWinner;
+  }
+
+/* else (
+    if (($(boxCells.eq(0)).text() === "" ||
+          $(boxCells.eq(1)).text() === "" ||
+          $(boxCells.eq(2)).text() === "" ||
+          $(boxCells.eq(3)).text() === "" ||
+          $(boxCells.eq(4)).text() === "" ||
+          $(boxCells.eq(5)).text() === "" ||
+          $(boxCells.eq(6)).text() === "" ||
+          $(boxCells.eq(7)).text() === "" ||
+          $(boxCells.eq(8)).text() === "" ) ) {
+
+            gameWinner = "Draw";
+      }
+      alert(gameWinner);
+      return gameWinner;
+    });
+*/
 
   $(".btn").on("click", function resetGame(event) {
     alert("Game reset!");
     window.location.reload();
   });
-
 
 
 });
